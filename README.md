@@ -2,7 +2,7 @@
 # dotfiles
 Various dotfiles for fish, nvim, etc
 
-Can be distributed freely
+Can be distributed freely under [Creative Commons Attribution 4.0 International License][cc-by]
 
 ## TODO
 Add install script for auto symlink
