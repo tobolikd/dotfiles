@@ -5,6 +5,12 @@ Various dotfiles for fish, nvim, etc
 Can be distributed freely under [Creative Commons Attribution 4.0 International License][cc-by]
 
 # Requirements
+## git
+### [git itself](https://github.com/git/git)
+```
+sudo apt install git
+```
+
 ## neovim
 ### [neovim itself](https://github.com/neovim/neovim)
 ```
