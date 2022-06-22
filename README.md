@@ -6,7 +6,7 @@ Can be distributed freely under [Creative Commons Attribution 4.0 International 
 
 # Requirements
 ## neovim
-[neovim itself](https://github.com/neovim/neovim)
+### [neovim itself](https://github.com/neovim/neovim)
 ```
 sudo apt install neovim
 ```
