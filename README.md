@@ -2,6 +2,12 @@
 # dotfiles
 Various dotfiles for fish, nvim, etc
 
+Inspired by:
+https://github.com/ThePrimeagen/.dotfiles
+https://www.youtube.com/watch?v=DogKdiRx7ls
+https://www.youtube.com/watch?v=JWReY93Vl6g
+https://github.com/NeuralNine/config-files/blob/master/init.vim
+
 Can be distributed freely under [Creative Commons Attribution 4.0 International License][cc-by]
 
 # Requirements
