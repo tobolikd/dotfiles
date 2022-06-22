@@ -39,18 +39,16 @@ set cmdheight=2
 set signcolumn=yes
 set colorcolumn=80
 
-" impoert plugins
+" import plugins
 call plug#begin()
 
 Plug 'nvim-telescope/telescope.nvim'    " fuzzy finder
 Plug 'gruvbox-community/gruvbox'        " gruvbox theme 
-Plug 'tpope/vim-commentary'              " gcc and gc comments
+Plug 'tpope/vim-commentary'             " gcc and gc comments
 
+call plug#end()
 
-
-" call plug#end()
-
-" set theme
+" set scheme
 colorscheme gruvbox
 
 
