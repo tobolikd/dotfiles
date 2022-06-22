@@ -13,6 +13,7 @@ set nu
 
 " cursor to block
 set guicursor=
+set mouse=a
 
 " text wrap
 set nowrap
@@ -40,7 +41,14 @@ set signcolumn=yes
 set colorcolumn=80
 
 " import plugins
-call plug#begin()
+call plug#begin('~/.vim/plugins')
+
+" telescope requirements
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'    " fuzzy finder
 Plug 'gruvbox-community/gruvbox'        " gruvbox theme 
@@ -51,5 +59,8 @@ call plug#end()
 " set scheme
 colorscheme gruvbox
 
+" remaps
+let mapleader=" "
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 
 " END
