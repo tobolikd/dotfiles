@@ -11,12 +11,29 @@ Can be distributed freely under [Creative Commons Attribution 4.0 International 
 sudo apt install git
 ```
 
+### [gpg](https://gnupg.org/)
+```
+sudo apt install gpg
+```
+
+### [meld](https://meldmerge.org/)
+```
+sudo apt install meld
+```
+
 ## neovim
 ### [neovim itself](https://github.com/neovim/neovim)
 ```
 sudo apt install neovim
 ```
 And othe tools requred by the plugins like git, curl, ...
+
+### [vim-plug](https://github.com/junegunn/vim-plug)
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+After configuring the dotfile run `PlugInstall` in vim (before installing plugins, some errors might occur)
 
 ## fish shell
 ### [fish shell itself](https://github.com/fish-shell/fish-shell)
@@ -48,14 +65,19 @@ to
       set -x color_repo                     $green[2] $fg[2]
 ```
 
-### [Fisher plugin manager](https://github.com/jorgebucaran/fisher)
+### [fisher plugin manager](https://github.com/jorgebucaran/fisher)
 ```
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-### [Fish gruvbox theme](https://github.com/Jomik/fish-gruvbox)
+### [fish gruvbox theme](https://github.com/Jomik/fish-gruvbox)
 ```
 fisher install jomik/fish-gruvbox
+```
+
+### [neofetch](https://github.com/dylanaraps/neofetch)
+```
+sudo apt install neofetch
 ```
 
 # TODO
