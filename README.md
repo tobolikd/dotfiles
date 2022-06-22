@@ -23,10 +23,18 @@ sudo apt install meld
 
 ## neovim
 ### [neovim itself](https://github.com/neovim/neovim)
+If you don't need newer version, install via package managaer
 ```
 sudo apt install neovim
 ```
-And other tools required by the plugins like git, curl, ...
+WARNING: plugin `telescope` requires version 0.7.0. The package manager provides much lower version (0.4.x)
+You can [build it](https://github.com/neovim/neovim/wiki/Building-Neovim)
+```
+git clone https://github.com/neovim/neovim
+git checkout stable
+sudo make install
+```
+...or try other methods listed [here](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
 
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 ```
@@ -34,6 +42,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 
 After configuring the dotfile run `PlugInstall` in vim (before installing plugins, some errors might occur)
+
+Other tools are required by the plugins like git, curl, ...
 
 ## fish shell
 ### [fish shell itself](https://github.com/fish-shell/fish-shell)
