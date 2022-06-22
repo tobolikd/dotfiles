@@ -58,11 +58,11 @@ This will also set bobthefish as default fish theme
 #### Optional colorcheme fix
 In `~/.local/share/omf/themes/bobthefish/functions/__bobthefish_colors.fish` change under `case 'gruvbox'`
 ```
-      set -x color_repo                     $green[2] **$bg[1]**
+      set -x color_repo                     $green[2] $bg[1]
 ```
 to
 ```
-      set -x color_repo                     $green[2] **$fg[2]**
+      set -x color_repo                     $green[2] $fg[2]
 ```
 
 ### [fisher plugin manager](https://github.com/jorgebucaran/fisher)
