@@ -1,0 +1,24 @@
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = tobolikg@gmail.com
+	name = David Tobolik
+	signingkey = FC33EECD0FF604D03EC2CF03F961AC71AA64914F
+[core]
+	editor = nvim
+[commit]
+	gpgsign = true
+[alias]
+	s = status
+	commit = commit -v
+	c = commit -v
+    f = fetch
+[init]
+    defaultBranch = main
+
+[merge]
+	tool = meld
+[gpg]
+	program = gpg
