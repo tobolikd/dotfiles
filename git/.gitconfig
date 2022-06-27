@@ -16,6 +16,7 @@
 	c = commit -v
     f = fetch
     ch = checkout
+    sh = show
 [init]
     defaultBranch = main
 
@@ -23,3 +24,5 @@
 	tool = meld
 [gpg]
 	program = gpg
+[pull]
+	rebase = true
