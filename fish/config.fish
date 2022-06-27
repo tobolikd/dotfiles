@@ -27,7 +27,7 @@ alias rd_stop='sudo /etc/init.d/xrdp stop && sudo /etc/init.d/xrdp status'
 
 ## vim=nvim
 alias vim='nvim'
-
+alias v='nvim'
 
 
 # tell gpg where to ask for passwd
