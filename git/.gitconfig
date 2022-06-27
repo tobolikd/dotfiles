@@ -15,6 +15,7 @@
 	commit = commit -v
 	c = commit -v
     f = fetch
+    ch = checkout
 [init]
     defaultBranch = main
 
