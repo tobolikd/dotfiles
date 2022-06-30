@@ -1,0 +1,5 @@
+require('settings')
+-- require(keymaps)
+require('packer-config')
+-- require(plugins)
+-- require(colorscheme)
