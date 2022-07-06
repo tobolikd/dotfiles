@@ -1,5 +1,5 @@
 require('settings')
--- require(keymaps)
+-- require('keymaps')
 require('pack')
--- require(plugins)
--- require(colorscheme)
+-- require('plugins')
+require('colorscheme')
