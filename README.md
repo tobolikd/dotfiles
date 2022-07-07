@@ -42,12 +42,11 @@ sudo make install
 ```
 ...or try other methods listed [here](https://www.reddit.com/r/neovim/comments/f9661m/how_do_i_install_the_latest_version_of_neovim_on/)
 
-### [vim-plug](https://github.com/junegunn/vim-plug)
+### [packer](https://github.com/wbthomason/packer.nvim)
 ```
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
-
-After configuring the dotfile run `PlugInstall` in vim (before installing plugins, some errors might occur)
+Run :PackerSync in nvim to dowload all plugins
 
 Other tools are required by the plugins like git, curl, ...
 
@@ -65,7 +64,6 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 ```
 
 ### [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish)
-
 ```
 omf install bobthefish
 ```
