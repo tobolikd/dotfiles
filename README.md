@@ -40,6 +40,7 @@ WARNING: plugin `telescope` requires version 0.7.0. The package manager provides
 You can [build it](https://github.com/neovim/neovim/wiki/Building-Neovim)
 ```
 git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 git checkout stable
 sudo make install
 ```
