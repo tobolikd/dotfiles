@@ -1,5 +1,9 @@
 local set = vim.opt
 
+-- set shell
+set.shell = '/bin/bash'
+
+-- encoding
 set.fileencoding = 'utf-8'
 
 -- tab options
