@@ -2,6 +2,8 @@
 # dotfiles
 Various dotfiles for fish, nvim, etc
 
+Install commands and scripts use `apt` as package manager. Tested on Ubuntu, should be compatible with all Debian distros.
+
 Inspired by:
  - https://github.com/ThePrimeagen/.dotfiles
  - https://github.com/NeuralNine/config-files/blob/master/init.vim
