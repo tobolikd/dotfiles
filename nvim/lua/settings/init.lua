@@ -23,8 +23,8 @@ set.termguicolors = true
 set.relativenumber = true
 set.number = true
 
--- cursor to block
-set.guicursor = ''
+-- cursor and mouse
+set.guicursor = 'n-v-c:block-Cursor'
 set.mouse = 'a'
 
 -- text wrap
