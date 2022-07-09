@@ -1,5 +1,10 @@
 [![CC BY 4.0][cc-by-shield]][cc-by]
 # dotfiles
+Deploy dotfiles (dependencies can be installed during deploy process)
+```
+./deploy.sh
+```
+
 Various dotfiles for fish, nvim, etc
 
 Install commands and scripts use `apt` as package manager. Tested on Ubuntu, should be compatible with all Debian distros.
