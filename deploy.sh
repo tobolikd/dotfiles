@@ -8,17 +8,6 @@ report(){ echo -e -n "$GREEN""$1""$BLANK"; }
 ok(){ echo -e "$GREEN" --- DONE ---"$BLANK"; }
 warning(){ echo ; echo -e "$RED"WARNING: "$1""$BLANK"; }
 
-echo -n "Do you want to install dependencies? (y/n): "
-
-read -r
-
-if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
-	./dependencies.sh || exit 1
-elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
-	warning "Fine, but be sure to have all dependencies installed"
-else
-	exit 1
-fi
 
 warning "This script will overwrite the following files and directories:"
 echo -e "~/.gitconfig\n~/.config/nvim/init.lua\n~/.config/nvim/lua\n~/.config/fish/config.fish"
@@ -27,10 +16,23 @@ echo -n "$RED""Do you want to continue? (y/n): ""$BLANK"
 read -r
 
 if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
-	
+    rm -fdr ~/.gitconfig ~/.config/nvim/init.lua ~/.config/nvim/lua ~/.config/fish/config.fish ~/.config/nvim/lua/
 elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
     report "Exiting the script"
     exit 1
+else
+	exit 1
+fi
+
+
+echo -n "Do you want to install dependencies? (y/n): "
+
+read -r
+
+if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
+	./dependencies.sh || exit 1
+elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
+	warning "Fine, but be sure to have all dependencies installed"
 else
 	exit 1
 fi
