@@ -11,7 +11,7 @@ warning(){ echo ; echo -e "$RED"WARNING: "$1""$BLANK"; }
 
 warning "This script will overwrite the following files and directories:"
 echo -e "~/.gitconfig\n~/.config/nvim/init.lua\n~/.config/nvim/lua\n~/.config/fish/config.fish"
-echo -n "$RED""Do you want to continue? (y/n): ""$BLANK"
+echo -ne "$RED""Do you want to continue? (y/n): ""$BLANK"
 
 read -r
 
