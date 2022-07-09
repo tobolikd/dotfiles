@@ -15,6 +15,7 @@
 	commit = commit -v
 	c = commit -v
     f = fetch
+    p = push
     ch = checkout
     sh = show
 [init]
