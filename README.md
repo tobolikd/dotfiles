@@ -2,6 +2,8 @@
 # dotfiles
 Deploy dotfiles (dependencies can be installed during deploy process)
 ```
+git clone https://github.com/NobodySpy/dotfiles.git
+cd dotfiles
 ./deploy.sh
 ```
 
