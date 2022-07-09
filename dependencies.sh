@@ -1,18 +1,49 @@
 #!/bin/bash
 
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 BLANK='\033[0m'
 
 report(){ echo -e "$GREEN""$INDENT""$1""$BLANK"; INDENT+="    "; }
 ok(){ INDENT=$(echo "$INDENT" | cut -c 5-); echo -e "$GREEN""$INDENT"--- DONE ---"$BLANK"; echo; }
+warning(){ echo ; echo -e "$RED"WARNING: "$1""$BLANK"; }
 
-all=(git meld gpg  packer  omf bobthefish fisher fish-gruvbox neofetch)
+all=(git meld gpg neovim packer fish omf bobthefish fisher fish-gruvbox neofetch)
 
 report "Installing dependencies"
 
 report "Updating packages"
 sudo apt update && sudo apt upgrade -y
 ok
+
+report "Cleaning build directories"
+rm -fr *build
+ok
+
+omf-install()
+{
+    mkdir fish-build
+    cd fish-build
+
+    rm -fr ~/.local/share/omf
+
+    report "Installing oh-my-fish"
+
+    git clone https://github.com/oh-my-fish/oh-my-fish
+    cd oh-my-fish
+    bin/install --offline --noninteractive
+
+    cd ../..
+    ok
+}
+
+packer-install()
+{
+    rm -fr ~/.local/share/nvim/site/pack/packer/start/packer.nvim 
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    ok
+}
+
 
 for i in "${!all[@]}"; do
 	case "${all[$i]}" in
@@ -37,22 +68,25 @@ for i in "${!all[@]}"; do
 	;;
 
 	"packer")
-	report "Installing packer"
-    if [[ -f /home/dave/.local/share/nvim/site/pack/packer/start/packer.nvim ]] ; then
+    report "Installing packer"
+    if [[ -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]] ; then
         warning "Packer found on path ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
         echo -n "Do you want to Reinstall packer of Continue with current installation (R/C): "
         read -r
         case "$REPLY" in
             "r" | "R")
-                git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-	            ok
+                packer-install
                 ;;
             "c" | "C")
                 ;;
             *)
-                exit
+                exit 1
                 ;;
         esac
+    else
+        packer-install
+        git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+        ok
     fi
 	;;
 
@@ -80,44 +114,34 @@ for i in "${!all[@]}"; do
         read -r
         case "$REPLY" in
             "r" | "R")
-                if [[ -f ~/.config/fish/config.fish ]] ; then
-                    mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bak.omfinstall
-                fi
-	            report "Installing oh-my-fish"
-	            curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-                if [[ -f ~/.config/fish/config.fish.bak.omfinstall ]] ; then
-                    mv ~/.config/fish/config.fish.bak.omfinstall ~/.config/fish/config.fish
-                fi
-	            ok
+                omf-install
                 ;;
             "c" | "C")
                 ;;
             *)
-                exit
+                exit 1
                 ;;
         esac
+    else
+        omf-install
     fi
     ;;
 
 	"bobthefish")
 	report "Installing bobthefish theme"
-	omf install bobthefish
-	report "Fixing colorsheme gruvbox"
-	
+    echo "omf install bobthefish" | fish
 	ok
 	;;
 
 	"fisher")
 	report "Installing fisher"
-	curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-
+	echo 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher' | fish
 	ok
 	;;
 
 	"fish-gruvbox")
 	report "Installing gruvbox theme for fish"
-	fisher install jomik/fish-gruvbox
-	
+    echo 'fisher install jomik/fish-gruvbox' | fish
 	ok
 	;;
 

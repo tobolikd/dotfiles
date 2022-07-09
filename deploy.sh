@@ -13,26 +13,42 @@ echo -n "Do you want to install dependencies? (y/n): "
 read -r
 
 if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
-	./dependencies.sh
+	./dependencies.sh || exit 1
 elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
 	warning "Fine, but be sure to have all dependencies installed"
 else
-	exit
+	exit 1
 fi
 
+warning "This script will overwrite the following files and directories:"
+echo -e "~/.gitconfig\n~/.config/nvim/init.lua\n~/.config/nvim/lua\n~/.config/fish/config.fish"
+echo -n "$RED""Do you want to continue? (y/n): ""$BLANK"
+
+read -r
+
+if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
+	
+elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
+    report "Exiting the script"
+    exit 1
+else
+	exit 1
+fi
+
+
 report "Linking git config"
-ln -sf "$PWD"/git/.gitconfig ~/.gitconfig && \
+ln -sf "$PWD"/git/.gitconfig ~/ && \
 ok
 
 report "Linking nvim config"
 mkdir -p ~/.config/nvim/
-ln -sf "$PWD"/nvim/init.lua ~/.config/nvim/init.lua && \
-ln -sf "$PWD"/nvim/lua/ ~/.config/nvim/lua && \
+ln -sf "$PWD"/nvim/init.lua ~/.config/nvim/ && \
+ln -sf "$PWD"/nvim/lua/ ~/.config/nvim/ && \
 ok
 
 report "Linking fish config"
 mkdir -p ~/.config/fish/ && \
-ln -sf "$PWD"/fish/config.fish ~/.config/fish/config.fish && \
+ln -sf "$PWD"/fish/config.fish ~/.config/fish/ && \
 ok
 
 report "Fixing gruvbox colorscheme for bobthefish"
@@ -48,6 +64,7 @@ fi
 echo
 
 report "Setting up fish"
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 ok
 
