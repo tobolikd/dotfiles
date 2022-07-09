@@ -1,0 +1,55 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+BLANK='\033[0m'
+
+report(){ echo -e -n "$GREEN""$1""$BLANK"; }
+ok(){ echo -e "$GREEN" --- DONE ---"$BLANK"; }
+warning(){ echo ; echo -e "$RED"WARNING: "$1""$BLANK"; }
+
+echo -n "Do you want to install dependencies? (y/n): "
+
+read -r
+
+if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
+	./dependencies.sh
+elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
+	warning "Fine, but be sure to have all dependencies installed"
+else
+	exit
+fi
+
+report "Linking git config"
+ln -sf "$PWD"/git/.gitconfig ~/.gitconfig && \
+ok
+
+report "Linking nvim config"
+mkdir -p ~/.config/nvim/
+ln -sf "$PWD"/nvim/init.lua ~/.config/nvim/init.lua && \
+ln -sf "$PWD"/nvim/lua/ ~/.config/nvim/lua && \
+ok
+
+report "Linking fish config"
+mkdir -p ~/.config/fish/ && \
+ln -sf "$PWD"/fish/config.fish ~/.config/fish/config.fish && \
+ok
+
+report "Fixing gruvbox colorscheme for bobthefish"
+if [[ -f ~/.local/share/omf/themes/bobthefish/functions/__bobthefish_colors.fish ]] ; then
+	sed -i -e 's/\(set -x color_repo *$green\[2\] \)\($bg\[1\]\)/\1$fg[2]/g' ~/.local/share/omf/themes/bobthefish/functions/__bobthefish_colors.fish && \
+	ok
+else
+	warning "File \"~/.local/share/omf/themes/bobthefish/functions/__bobthefish_colors.fish\" does not exist, do you have bobthefish installed?"
+	echo
+	echo -e "\tomf install bobthefish"
+fi
+
+echo
+
+report "Setting up fish"
+chsh -s /usr/local/bin/fish
+ok
+
+report "----------------- ALL DONE -----------------" 
+
