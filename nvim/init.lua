@@ -1,5 +1,6 @@
 require('settings')
 require('keymaps')
-require('pack')
+require('packer-config')
 require('plugins')
 require('colorscheme')
+require('lsp-config')
