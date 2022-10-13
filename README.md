@@ -45,7 +45,7 @@ If you don't need newer version, install via package managaer
 ```
 sudo apt install neovim
 ```
-WARNING: plugin `telescope` requires version 0.7.0. The package manager provides much lower version (0.4.x)
+WARNING: some plugins require version 0.7.0. The package manager provides much lower version (0.4.x)
 You can [build it](https://github.com/neovim/neovim/wiki/Building-Neovim)
 ```
 git clone https://github.com/neovim/neovim
@@ -62,6 +62,12 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvi
 Run :PackerSync in nvim to dowload all plugins
 
 Other tools are required by the plugins like git, curl, ...
+
+For lsp servers you need to have lts version of nodejs
+```
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
 
 ## fish shell
 ### [fish shell itself](https://github.com/fish-shell/fish-shell)
