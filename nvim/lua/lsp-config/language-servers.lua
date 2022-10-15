@@ -1,8 +1,7 @@
-vim.lsp.set_log_level("debug")
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<space>d', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
@@ -42,14 +41,13 @@ local lsp_flags = {
 }
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local lspconfig = require('lspconfig')
+local lsp_config = require('lspconfig')
 
 -- setup all servers
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
+    lsp_config[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
