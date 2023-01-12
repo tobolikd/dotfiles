@@ -5,7 +5,7 @@
 [user]
 	email = tobolikg@gmail.com
 	name = David Tobolik
-	signingkey = *signing key*
+	signingkey = FC33EECD0FF604D03EC2CF03F961AC71AA64914F
 [core]
 	editor = nvim
 [commit]

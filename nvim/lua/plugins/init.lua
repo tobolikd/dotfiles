@@ -1,2 +1,2 @@
-local conf = (...):match('(.+)%.[^%.]+$r') or (...) .. '.'
-require(conf .. 'nvim-tree')
+require('plugins.nvim-tree')
+require('plugins.lualine')
