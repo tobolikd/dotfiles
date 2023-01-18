@@ -7,4 +7,3 @@ require('autocommands')
 
 require('lsp-config.language-servers')
 require('lsp-config.cmp-config')
-
