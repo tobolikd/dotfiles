@@ -7,9 +7,6 @@ set theme_color_scheme gruvbox  # for bobthefish prompt
 ## rm alias
 alias rm='rm -iv'
 
-## bat alias
-alias bat='batcat'
-
 ## config fish (this file)
 alias fishconfig='nvim ~/.config/fish/config.fish'
 
@@ -32,10 +29,5 @@ alias v='nvim'
 
 # tell gpg where to ask for passwd
 export GPG_TTY=(tty)
-
-# display info
-neofetch --gap 20
-
-
 
 # END
