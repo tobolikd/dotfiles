@@ -17,20 +17,28 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- colorscheme
-    use 'gruvbox-community/gruvbox'
+    use 'morhetz/gruvbox'
 
     -- file tree
     use { 'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons'
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
 
     -- lualine
     use { 'nvim-lualine/lualine.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
 
     -- lsp
     use 'neovim/nvim-lspconfig'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+
+    -- telescope
+    use { 'nvim-telescope/telescope.nvim',
+        tag = '0.1.1',
+        requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzy-native.nvim' }
+    }
 
     -- treesitter
     use { 'nvim-treesitter/nvim-treesitter',
@@ -41,10 +49,9 @@ return require('packer').startup(function(use)
     }
 
     -- autocompletion
-    use 'hrsh7th/nvim-cmp'          -- Autocompletion plugin
-    use 'hrsh7th/cmp-nvim-lsp'      -- LSP source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip'  -- Snippets source for nvim-cmp
-    use 'L3MON4D3/LuaSnip'          -- Snippets plugin
+    use { 'hrsh7th/nvim-cmp',
+        requires = { 'hrsh7th/cmp-nvim-lsp', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' }
+    }
 
     -- set up plugins after cloning packer
     if packer_bootstrap then

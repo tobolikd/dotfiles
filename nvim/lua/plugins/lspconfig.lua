@@ -1,5 +1,14 @@
 local map = vim.keymap.set
 
+-- list of servers
+local servers = { 'pyright', 'clangd', 'sumneko_lua', 'texlab' }
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+    ensure_installed = servers,
+    automatic_installation = true,
+})
+
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 map('n', '<leader>d', vim.diagnostic.open_float, opts)
@@ -29,9 +38,6 @@ local on_attach = function(client, bufnr)
   map('n', 'gr', vim.lsp.buf.references, bufopts)
   map('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
-
--- list of servers
-local servers = { 'pyright', 'clangd', 'sumneko_lua' }
 
 -- additional capabilities supported by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
