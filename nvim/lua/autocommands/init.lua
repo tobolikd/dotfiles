@@ -11,3 +11,8 @@ autocmd("BufWritePre", {
     command = "%s/\\s\\+$//e",
 })
 
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = autocmdGroup,
+  pattern = {'*.tex'},
+  command = 'setlocal wrap'
+})
