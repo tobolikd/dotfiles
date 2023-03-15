@@ -24,20 +24,6 @@ else
 	exit 1
 fi
 
-
-echo -n "Do you want to install dependencies? (y/n): "
-
-read -r
-
-if [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] ; then
-	./dependencies.sh || exit 1
-elif [ "$REPLY" = "n" ] || [ "$REPLY" = "N" ] ; then
-	warning "Fine, but be sure to have all dependencies installed"
-else
-	exit 1
-fi
-
-
 report "Copying git config"
 cp "$PWD"/git/.gitconfig ~/ && \
 ok
@@ -70,5 +56,5 @@ echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 ok
 
-report "----------------- ALL DONE -----------------" 
+report "----------------- ALL DONE -----------------"
 
