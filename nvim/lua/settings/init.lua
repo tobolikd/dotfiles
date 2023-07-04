@@ -39,9 +39,9 @@ set.incsearch = true
 -- history
 set.swapfile = false
 set.hidden = true
-    -- set.nobackup
-    -- set.undodir=~/.vim/undodir
-    -- set.undofile
+-- set.nobackup
+-- set.undodir=~/.vim/undodir
+-- set.undofile
 
 -- navigation
 set.scrolloff = 8
@@ -54,4 +54,3 @@ set.cmdheight = 2
 -- info columns
 set.signcolumn = 'yes'
 set.colorcolumn = '80'
-
