@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- list of servers
-local servers = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'bashls', 'phpactor', 'csharp_ls', 'marksman' }
+local servers = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'bashls', 'marksman', 'rust_analyzer' }
 
 require('mason').setup()
 require('mason-lspconfig').setup({
