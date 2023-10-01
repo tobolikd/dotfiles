@@ -1,14 +1,5 @@
 local map = vim.keymap.set
 
--- list of servers
-local servers = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'bashls', 'marksman', 'rust_analyzer' }
-
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = servers,
-    automatic_installation = true,
-})
-
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
 map('n', '<leader>d', vim.diagnostic.open_float, opts)
@@ -44,10 +35,30 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp_config = require('lspconfig')
 
--- setup all servers
-for _, lsp in ipairs(servers) do
-    lsp_config[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
+require('mason').setup()
+require('mason-lspconfig').setup({
+    ensure_installed = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'bashls', 'marksman', 'rust_analyzer' },
+    automatic_installation = true,
+    handlers = {
+        -- setup all servers
+        function(server)
+            lsp_config[server].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+            }
+        end,
+        ['lua_ls'] = function(server)
+            lsp_config[server].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            }
+        end,
     }
-end
+})
