@@ -37,7 +37,7 @@ local lsp_config = require('lspconfig')
 
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'bashls', 'marksman', 'rust_analyzer' },
+    ensure_installed = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'rust_analyzer' },
     automatic_installation = true,
     handlers = {
         -- setup all servers
@@ -62,3 +62,4 @@ require('mason-lspconfig').setup({
         end,
     }
 })
+

@@ -25,7 +25,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-# keymaps
 alias rm='rm -iv'
 
 alias l='ls -l'
@@ -39,7 +38,12 @@ alias b='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias get_idf='. $HOME/Github/installs/esp-idf/export.sh'
+
 export GPG_TTY=$(tty)
 
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 unset rc
+
 . "$HOME/.cargo/env"
