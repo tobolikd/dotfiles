@@ -40,7 +40,9 @@ alias ...='cd ../..'
 
 alias get_idf='. $HOME/Github/installs/esp-idf/export.sh'
 
+export EDITOR="nvim"
 export GPG_TTY=$(tty)
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
