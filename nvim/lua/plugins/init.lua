@@ -1,5 +1,6 @@
 require('plugins.lspconfig')
 require('plugins.nvim-tree')
+require('plugins.vimtex')
 require('plugins.lualine')
 require('plugins.cmp')
 require('plugins.settings')

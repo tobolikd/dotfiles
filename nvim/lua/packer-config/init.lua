@@ -36,7 +36,6 @@ return require('packer').startup(function(use)
 
     -- telescope
     use { 'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
         requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzy-native.nvim' }
     }
 
@@ -52,6 +51,9 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/nvim-cmp',
         requires = { 'hrsh7th/cmp-nvim-lsp', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' }
     }
+
+    -- vimtex
+    use 'lervag/vimtex'
 
     -- set up plugins after cloning packer
     if packer_bootstrap then
