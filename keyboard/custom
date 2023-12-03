@@ -1,0 +1,59 @@
+default partial alphanumeric_keys
+xkb_symbols "cz-dvorak-prog" {
+    name[ Group1 ]= "Czech Dvorak (programmer)";
+
+    key <TLDE>  {[ dollar, asciitilde ]};
+
+    key <AD01>  {[ semicolon, colon ]};
+    key <AD02>  {[ comma, less, dead_acute ]};
+    key <AD03>  {[ period, greater, dead_caron ]};
+    key <AD04>  {[ p, P ]};
+    key <AD05>  {[ y, Y, yacute, Yacute ]};
+    key <AD06>  {[ f, F ]};
+    key <AD07>  {[ g, G ]};
+    key <AD08>  {[ c, C, ccaron, Ccaron ]};
+    key <AD09>  {[ r, R, rcaron, Rcaron ]};
+    key <AD10>  {[ l, L ]};
+    key <AD11>  {[ slash, question ]};
+    key <AD12>  {[ at, asciicircum ]};
+
+    key <AC01>  {[ a, A, aacute, Aacute ]};
+    key <AC02>  {[ o, O, oacute, Oacute ]};
+    key <AC03>  {[ e, E, ecaron, Ecaron ]};
+    key <AC04>  {[ u, U, uring,  Uring ]};
+    key <AC05>  {[ i, I, iacute, Iacute ]};
+    key <AC06>  {[ d, D, dcaron, Dcaron ]};
+    key <AC07>  {[ h, H ]};
+    key <AC08>  {[ t, T, tcaron, Tcaron ]};
+    key <AC09>  {[ n, N, ncaron, Ncaron ]};
+    key <AC10>  {[ s, S, scaron, Scaron ]};
+    key <AC11>  {[ minus, underscore ]};
+
+    key <AB01>  {[ apostrophe, quotedbl ]};
+    key <AB02>  {[ q, Q ]};
+    key <AB03>  {[ j, J, eacute, Eacute ]};
+    key <AB04>  {[ k, K, uacute, Uacute ]};
+    key <AB05>  {[ x, X ]};
+    key <AB06>  {[ b, B ]};
+    key <AB07>  {[ m, M ]};
+    key <AB08>  {[ w, W ]};
+    key <AB09>  {[ v, V ]};
+    key <AB10>  {[ z, Z, zcaron, Zcaron ]};
+
+    key <AE01>  {[ plus, 1 ]};
+    key <AE02>  {[ bracketleft, 2 ]};
+    key <AE03>  {[ braceleft, 3 ]};
+    key <AE04>  {[ parenleft, 4 ]};
+    key <AE05>  {[ ampersand, 5 ]};
+    key <AE06>  {[ equal, 6 ]};
+    key <AE07>  {[ parenright, 7 ]};
+    key <AE08>  {[ braceright, 8 ]};
+    key <AE09>  {[ bracketright, 9 ]};
+    key <AE10>  {[ asterisk, 0 ]};
+    key <AE11>  {[ exclam, percent ]};
+    key <AE12>  {[ bar, grave ]};
+
+    key <BKSL>  {[ backslash, numbersign ]};
+
+    include "level3(ralt_switch)"
+};

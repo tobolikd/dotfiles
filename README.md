@@ -69,48 +69,9 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-## fish shell
-### [fish shell itself](https://github.com/fish-shell/fish-shell)
+### Keyboard layout
 ```
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt update
-sudo apt install fish
-```
-
-### [oh my fish](https://github.com/oh-my-fish/oh-my-fish)
-```
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-```
-
-### [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish)
-```
-omf install bobthefish
-```
-This will also set bobthefish as default fish theme
-
-#### Optional colorcheme fix
-In `~/.local/share/omf/themes/bobthefish/functions/__bobthefish_colors.fish` change under `case 'gruvbox'`
-```
-      set -x color_repo                     $green[2] $bg[1]
-```
-to
-```
-      set -x color_repo                     $green[2] $fg[2]
-```
-
-### [fisher plugin manager](https://github.com/jorgebucaran/fisher)
-```
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-```
-
-### [fish gruvbox theme](https://github.com/Jomik/fish-gruvbox)
-```
-fisher install jomik/fish-gruvbox
-```
-
-### [neofetch](https://github.com/dylanaraps/neofetch)
-```
-sudo apt install neofetch
+cp custom /usr/share/X11/xkb/symbols/
 ```
 
 # TODO
