@@ -55,6 +55,9 @@ return require('packer').startup(function(use)
     -- vimtex
     use 'lervag/vimtex'
 
+    -- prettier
+    use 'MunifTanjim/prettier.nvim'
+
     -- set up plugins after cloning packer
     if packer_bootstrap then
         require('packer').sync()

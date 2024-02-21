@@ -9,3 +9,5 @@ vim.g['vimtex_indent_enabled'] = true
 vim.g['vimtex_syntax_enabled'] = true
 
 vim.g['vimtex_context_pdf_viewer'] = 'okular'
+
+vim.g['vimtex_quickfix_enabled'] = 0
