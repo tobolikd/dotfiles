@@ -39,6 +39,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias get_idf='. $HOME/Github/installs/esp-idf/export.sh'
+alias get_idf8266='. $HOME/Github/installs/ESP8266_RTOS_SDK/export.sh'
 
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
