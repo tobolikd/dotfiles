@@ -17,7 +17,8 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- colorscheme
-    use 'morhetz/gruvbox'
+    -- use 'morhetz/gruvbox'
+    use 'ellisonleao/gruvbox.nvim'
 
     -- file tree
     use { 'kyazdani42/nvim-tree.lua',
@@ -42,14 +43,19 @@ return require('packer').startup(function(use)
     -- treesitter
     use { 'nvim-treesitter/nvim-treesitter',
         run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
+            require('nvim-treesitter.install').update({ with_sync = true })
         end,
     }
 
     -- autocompletion
     use { 'hrsh7th/nvim-cmp',
-        requires = { 'hrsh7th/cmp-nvim-lsp', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' }
+        requires = { 'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/nvim-cmp',
+            'saadparwaiz1/cmp_luasnip',
+            'L3MON4D3/LuaSnip' }
     }
 
     -- vimtex
