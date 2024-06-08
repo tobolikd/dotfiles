@@ -58,11 +58,23 @@ return require('packer').startup(function(use)
             'L3MON4D3/LuaSnip' }
     }
 
+    -- autopairs
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    }
+
     -- vimtex
     use 'lervag/vimtex'
 
     -- prettier
     use 'MunifTanjim/prettier.nvim'
+
+    -- formatter
+    use "stevearc/conform.nvim"
 
     -- set up plugins after cloning packer
     if packer_bootstrap then

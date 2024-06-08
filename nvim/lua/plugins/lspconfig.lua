@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
     map('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     map('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     map('n', 'gr', vim.lsp.buf.references, bufopts)
-    map('n', '<leader>fm', function() vim.lsp.buf.format { async = true } end, bufopts)
+--    map('n', '<leader>fm', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 -- additional capabilities supported by nvim-cmp
