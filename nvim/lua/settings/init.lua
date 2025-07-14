@@ -1,5 +1,8 @@
 local set = vim.opt
 
+-- disable deprecated messages on startup
+vim.deprecate = function() end
+
 -- set shell
 set.shell = '/bin/bash'
 

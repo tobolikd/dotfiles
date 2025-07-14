@@ -60,21 +60,30 @@ return require('packer').startup(function(use)
 
     -- autopairs
     use {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
         config = function()
-            require("nvim-autopairs").setup {}
+            require('nvim-autopairs').setup {}
         end
     }
 
     -- vimtex
     use 'lervag/vimtex'
 
-    -- prettier
-    use 'MunifTanjim/prettier.nvim'
-
     -- formatter
     use "stevearc/conform.nvim"
+
+    -- rust crate manager
+    use {
+        'saecki/crates.nvim',
+        tag = 'stable',
+        config = function()
+            require('crates').setup()
+        end,
+    }
+
+    -- typst
+    use { 'kaarmu/typst.vim', ft = { 'typst' } }
 
     -- set up plugins after cloning packer
     if packer_bootstrap then
