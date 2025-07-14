@@ -27,6 +27,8 @@ fi
 
 alias rm='rm -iv'
 
+alias off='poweroff'
+
 alias l='ls -l'
 alias ll='ls -al'
 alias la='ls -a'
@@ -37,6 +39,9 @@ alias b='bat'
 
 alias ..='cd ..'
 alias ...='cd ../..'
+
+alias act='source .venv/bin/activate'
+alias de='deactivate'
 
 alias get_idf='. $HOME/Github/installs/esp-idf/export.sh'
 alias get_idf8266='. $HOME/Github/installs/ESP8266_RTOS_SDK/export.sh'
@@ -50,3 +55,4 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=1
 unset rc
 
 . "$HOME/.cargo/env"
+
